@@ -1,0 +1,115 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<body>
+
+    <!-- banner section -->
+
+    <div id="ban" style="height: 320px;">
+        <div class="primary-overlay " style="height: 320px;">
+            <div class="container">
+                <div class="row align-items-center justify-content-center d-flex">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start post Area -->
+    <section class="post-area section-gap">
+        <div class="container">
+            <div class="row justify-content-center d-flex">
+                <div class="col-lg-4 sidebar">
+
+                    <div class="single-slidebar">
+                        <figure class="mb-4">
+                            <a href="#" class="employer-dashboard-thumb"><img src="{% static 'img/employer-dashboard-1.png' %}"
+                                    alt=""></a>
+                            <figcaption>
+                                <div class="careerfy-fileUpload">
+                                    <span class="clr_b"><i class="fa fa-plus careerfy-add"></i> Upload Photo</span>
+                                    <input type="file" class="careerfy-upload">
+                                </div>
+                                <h2>Graveholdings</h2>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                
+                <div class="col-lg-8 post-list mt-5">
+                    <div class="profile_job_content col-lg-12">
+                        <div class="headline">
+                            <h3> Welcome Company</h3>
+                        </div>
+                        <div class="profile_job_detail">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="submit-field">
+                                        <h5>First Name *</h5>
+                                        <input class="form-control" type="text" placeholder="First Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="submit-field">
+                                        <h5>Last Name *</h5>
+                                        <input class="form-control" type="email" placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="submit-field">
+                                        <h5>Phone *</h5>
+                                        <input class="form-control" type="tel" placeholder="+880********">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="submit-field">
+                                        <h5>Email *</h5>
+                                        <input class="form-control" type="email" placeholder="example@example.com">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="submit-field">
+                                        <h5>Category *</h5>
+                                        <select class="form-control">
+                                            <option>Select Category</option>
+                                            <option>PHP Developer</option>
+                                            <option>Web Developer</option>
+                                            <option>Web Designer</option>
+                                            <option>Android developer</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="submit-field">
+                                        <h5>Founded Date *</h5>
+                                        <input class="form-control" type="date">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="submit-field">
+                                        <h5>Description *</h5>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+                                            placeholder="Nulla bibendum commodo rhoncus. Sed mattis magna nunc, ac varius quam pharetra vitae. Praesent vitae ipsum eu magna pretium aliquam. Curabitur interdum quis velit non tincidunt.Donec pretium gravida erat, a faucibus velit egestas eget."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="add_job_btn col-lg-12">
+                        <div class="submit-field">
+                            <button type="submit" class="job_detail_btn">Submit</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- End post Area -->
+</body>
+
+{% endblock %}

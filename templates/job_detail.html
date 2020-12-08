@@ -1,0 +1,179 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<body>
+
+
+    <!-- banner section -->
+  <div id="ban" style="height: 320px;">
+    <div class="primary-overlay" style="height: 320px;">
+      <div class="container">
+        <div class="row align-items-center justify-content-center d-flex">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+
+
+
+
+
+    <!-- Start post Area -->
+    <section class="post-area section-gap">
+        <div class="container">
+            <div class="row justify-content-center d-flex">
+                <div class="col-lg-8 post-list">
+                    <div class="single-post d-flex flex-row">
+                        <div class="thumb">
+                          <img src="{{ detail.image.url }}" alt="">
+                        </div>
+                        <div class="details">
+                          <div class="title d-flex flex-row justify-content-between">
+                            <div class="titles">
+                              <a href="#">
+                                <h4>{{ detail.job_title }}</h4>
+                              </a>
+                              <h6>{{ detail.company_name }}</h6>
+                            </div>
+        
+                          </div>
+                          <div class="job-listing-footer">
+                            <ul>
+                              <li><i class="lnr lnr-map-marker"></i> {{ detail.company_address }}</li>
+                              <li><i class="lnr lnr-briefcase"></i> {{ detail.job_time }}</li>
+                              <li><i class="lnr lnr-apartment"></i> {{ detail.job_type }}</li>
+                              <li><i class="lnr lnr-clock"></i> Salary : &#x9f3;{{ detail.job_salary }}</li>
+                              <li><i class="lnr lnr-apartment"></i> Location : {{ detail.job_location }}</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="job-listing-btns">
+                          <ul class="btns">
+                            <li><a href="{% url 'apply-job' %}">Apply</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    <div class="single-post job-details">
+                        <h4 class="single-title">Whom we are looking for</h4>
+                        <p>
+                            {{ detail.job_discription }}
+                        </p>
+                    </div>
+                    <div class="single-post job-experience">
+                        <h4 class="single-title">Experience Requirements</h4>
+                        <ul>
+                            <li>
+                                <img src="{% static 'img/pages/list.jpg' %}" alt="">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+                            </li>
+                            <li>
+                                <img src="img/pages/list.jpg" alt="">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+                            </li>
+                            <li>
+                                <img src="img/pages/list.jpg" alt="">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+                            </li>
+                            <li>
+                                <img src="img/pages/list.jpg" alt="">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+                            </li>
+                            <li>
+                                <img src="img/pages/list.jpg" alt="">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+                            </li>
+                            <li>
+                                <img src="img/pages/list.jpg" alt="">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="single-post job-experience">
+                        <h4 class="single-title">Job Features & Overviews</h4>
+                        <ul>
+                            <li>
+                                <img src="img/pages/list.jpg" alt="">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+                            </li>
+                            <li>
+                                <img src="img/pages/list.jpg" alt="">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+                            </li>
+                            <li>
+                                <img src="img/pages/list.jpg" alt="">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+                            </li>
+                            <li>
+                                <img src="img/pages/list.jpg" alt="">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="single-post job-experience">
+                        <h4 class="single-title">Education Requirements</h4>
+                        <ul>
+                            <li>
+                                <img src="img/pages/list.jpg" alt="">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+                            </li>
+                            <li>
+                                <img src="img/pages/list.jpg" alt="">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+                            </li>
+                            <li>
+                                <img src="img/pages/list.jpg" alt="">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 sidebar">
+                    <div class="single-slidebar mt-2">
+                        <h4>Jobs by Location</h4>
+                        <ul class="cat-list" style="list-style-type: none; margin: 0px; padding: 0px;">
+                          {% for location in job_location %}
+                            <li><a class="justify-content-between d-flex" href="category.html">
+                                <p>{{ location.job_location }}</p><span>37</span>
+                              </a></li>
+                          {% endfor %}  
+                        </ul>
+                    </div>
+                
+                    <div class="single-slidebar">
+                        <h4>Jobs by Category</h4>
+                        <ul class="cat-list" style="list-style-type: none; margin: 0px; padding: 0px;">
+            
+                          {% for category in job_cat %}
+                          <li><a class="justify-content-between d-flex" href="category.html">
+                              <p>{{ category.category_name }}</p><span>37</span>
+                            </a></li>
+                          {% endfor %}  
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End post Area -->
+</body>
+
+
+{% endblock %}
