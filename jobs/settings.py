@@ -49,6 +49,9 @@ INSTALLED_APPS = [
 
     'user_account',
     'address',
+    'employee',
+    'company',
+
 
 
 ]

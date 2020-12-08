@@ -10,7 +10,7 @@
 <body>
 <h2>Person Form</h2>
 
-<form method="post" id="personForm">
+<form method="post" id="personForm" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Submit">

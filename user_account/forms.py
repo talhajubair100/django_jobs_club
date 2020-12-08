@@ -1,7 +1,7 @@
 from allauth.account.forms import LoginForm, SignupForm, ResetPasswordForm, ChangePasswordForm, ResetPasswordKeyForm, AddEmailForm
 from django import forms
-# from employee.models import EmployeUser
-# from company.models import CompanyUser
+from employee.models import EmployeUser
+from company.models import CompanyUser
 from django import forms as d_forms
 from django.contrib.auth.models import Group
 
@@ -80,20 +80,20 @@ class CustomeSignupForm(SignupForm):
 
         })
 
-    # def save(self, request):
-    #     user = super(CustomeSignupForm, self).save(request)
-    #     is_company = self.cleaned_data.pop('is_company')
-    #     if is_company == True:
-    #         print('it is comapny')
-    #         group = Group.objects.get(name="company")
-    #         user.groups.add(group)
-    #         company_user = CompanyUser.objects.get_or_create(com_user=user)
-    #     else:
-    #         print('it is not a company')
-    #         group = Group.objects.get(name="employee")
-    #         user.groups.add(group)
-    #         employe_user = EmployeUser.objects.get_or_create(emp_user=user)
+    def save(self, request):
+        user = super(CustomeSignupForm, self).save(request)
+        is_company = self.cleaned_data.pop('is_company')
+        if is_company == True:
+            print('it is comapny')
+            group = Group.objects.get(name="company")
+            user.groups.add(group)
+            company_user = CompanyUser.objects.get_or_create(com_user=user)
+        else:
+            print('it is not a company')
+            group = Group.objects.get(name="employee")
+            user.groups.add(group)
+            employe_user = EmployeUser.objects.get_or_create(emp_user=user)
 
-    #     return user
+        return user
 
 
