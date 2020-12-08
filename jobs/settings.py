@@ -11,10 +11,13 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+TEMPLATES_DIR = BASE_DIR / 'templates'
+MEDIA_DIR = BASE_DIR / 'media'
+STATIC_DIR = BASE_DIR / 'static'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -37,7 +40,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
 ]
+
+
+SITE_ID = 1
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,7 +69,7 @@ ROOT_URLCONF = 'jobs.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,6 +96,15 @@ DATABASES = {
 }
 
 
+AUTHENTICATION_BACKENDS = [
+
+    'django.contrib.auth.backends.ModelBackend',
+
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
+
+
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -105,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 
@@ -118,3 +142,56 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
+#django-allauth registraion settings 
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS =1
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+  
+# 1 day 
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400 
+  
+#or any other page 
+#ACCOUNT_LOGOUT_REDIRECT_URL ='/accounts/login/'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = True
+
+LOGIN_REDIRECT_URL = '/'
+
+ACCOUNT_FORMS = {
+    "login": "user_account.forms.CustomeLoginForm",
+    "signup": "user_account.forms.CustomeSignupForm",
+    "reset_password": "user_account.forms.CustomeResetPassForm",
+    'reset_password_from_key': "user_account.forms.CustomeSetPassForm",
+    "change_password": "user_account.forms.CustomeChngPassForm",
+    "add_email": "user_account.forms.CustomeAddEmailForm",
+
+    #"custome_signup": "djauth.froms.CustomeCompanySignupForm",
+    # "add_email": "allauth.account.forms.AddEmailForm",
+    # "change_password": "allauth.account.forms.ChangePasswordForm",
+    # "set_password": "allauth.account.forms.SetPasswordForm",
+    # "reset_password": "allauth.account.forms.ResetPasswordForm",
+    # "reset_password_from_key": "allauth.account.forms.ResetPasswordKeyForm",
+    # "disconnect": "allauth.socialaccount.forms.DisconnectForm",
+    # # Use our custom signup form
+}
+
+# SMTP Config
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'workit600.bd@gmail.com'
+EMAIL_HOST_PASSWORD = '**********'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'workit600.bd@gmail.com'
+
+
+
+
+
