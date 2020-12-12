@@ -9,7 +9,7 @@ class Division(models.Model):
 
 
 class District(models.Model):
-    divisions = models.ForeignKey(Division, on_delete=models.CASCADE)
+    division = models.ForeignKey(Division, on_delete=models.CASCADE)
     name = models.CharField(max_length=40)
 
     def __str__(self):
