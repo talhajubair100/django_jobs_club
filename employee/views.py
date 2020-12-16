@@ -5,30 +5,40 @@ from django.contrib.auth.models import User
 from .models import EmployeUser
 from django.contrib.auth.decorators import login_required
 from address .models import District, Division
-
+from .forms import forms
 # Create your views here.
 @login_required
 def employe_create_view(request):
-    employe_profile = EmployeUser.objects.get_or_create(emp_user=request.user)
-    form = EmployeCreationForm(instance=employe_profile)
-    if request.method == 'POST':
-        form = EmployeCreationForm(request.POST, request.FILES, instance=employe_profile)
-        if form.is_valid():
-            form.save()
-            return redirect('employe_add')
-    return render(request, 'employe_create.html', {'form': form})
+    employe_profile = EmployeUser.objects.get(emp_user=request.user)
+    if employe_profile.district is None:
+
+        form = EmployeCreationForm()
+        if request.method == 'POST':
+            form = EmployeCreationForm(request.POST, request.FILES, instance=employe_profile)
+            if form.is_valid():
+                employeuser = form.save(commit=False)
+                employeuser.emp_user = request.user
+                employeuser.save()
+                return redirect('/')
+        return render(request, 'employe_create.html', {'form': form, 'employe_profile': employe_profile})
+    else:
+        return redirect('employe_change')
+
 
 @login_required
-def employe_update_view(request, pk):
-    employe = get_object_or_404(EmployeUser, pk=pk)
-    form = EmployeCreationForm(instance=employe)
-    if request.method == 'POST':
-        form = EmployeCreationForm(request.POST, request.FILES, instance=employe)
-        if form.is_valid():
-            form.save()
-            return redirect('employe_change', pk=pk)
-    return render(request, 'employe_create.html', {'form': form})
+def employe_update_view(request):
+    employe_profile = EmployeUser.objects.get(emp_user=request.user)
+    if employe_profile.district:
 
+        form = EmployeCreationForm(instance=employe_profile)
+        if request.method == 'POST':
+            form = EmployeCreationForm(request.POST, request.FILES, instance=employe_profile)
+            if form.is_valid():
+                form.save()
+                return redirect('employe_change')
+        return render(request, 'employe_create.html', {'form': form, 'employe_profile': employe_profile})
+    else:
+       return redirect('employe_add')
 
 # AJAX
 def load_district(request):

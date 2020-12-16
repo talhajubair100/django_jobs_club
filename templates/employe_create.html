@@ -9,6 +9,8 @@
 </head>
 <body>
 <h2>Person Form</h2>
+<p>{{ employe_profile }}</p>
+
 
 <form method="post" id="personForm" enctype="multipart/form-data" data-district-url="{% url 'ajax_load_district' %}">
     {% csrf_token %}
