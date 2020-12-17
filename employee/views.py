@@ -10,6 +10,7 @@ from .forms import forms
 @login_required
 def employe_create_view(request):
     employe_profile = EmployeUser.objects.get(emp_user=request.user)
+
     if employe_profile.district is None:
 
         form = EmployeCreationForm()
