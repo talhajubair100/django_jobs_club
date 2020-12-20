@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from address .models import District, Division
 from .forms import forms
 # Create your views here.
+
 @login_required
 def employe_create_view(request):
     employe_profile = EmployeUser.objects.get(emp_user=request.user)
