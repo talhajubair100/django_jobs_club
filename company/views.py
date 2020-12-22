@@ -23,3 +23,16 @@ def company_create_view(request):
 
     context = {'form': form, 'company_profile': company_profile}
     return render(request, 'company_create.html', context)
+
+@login_required
+def company_update_view(request):
+    company_profile = CompanyUser.objects.get(com_user=request.user)
+    form = CompanyCreationForm(instance=company_profile)
+    if request.method == 'POST':
+        form = CompanyCreationForm(request.POST, request.FILES, instance=company_profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Good job! You successfully update your profile')
+            return redirect('/')
+    context = {'form': form, 'company_profile': company_profile}
+    return render(request, 'company_create.html', context)
