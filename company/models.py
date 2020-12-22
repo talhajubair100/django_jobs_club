@@ -5,7 +5,6 @@ from address.models import District, Division
 
 class CompanyUser(models.Model):
     com_user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=14, blank=True, null=True)
     comapny_name = models.CharField(max_length=100, blank=True, null=True)
     phone = models.CharField(max_length=14, blank=True, null=True)
     telephone = models.CharField(max_length=14, blank=True, null=True)
@@ -15,7 +14,8 @@ class CompanyUser(models.Model):
     district = models.ForeignKey(District, on_delete=models.SET_NULL, blank=True, null=True)
     zip_code = models.CharField(max_length=5, blank=True, null=True)
     full_address = models.TextField(blank=True, null=True)
-    company_link = models.URLField(max_length=200, blank=True, null=True, unique=True)
+    comapny_email = models.EmailField(max_length=254, blank=True, null=True)
+    website_link = models.URLField(max_length=200, blank=True, null=True, unique=True)
     facebook_link = models.URLField(max_length=200, blank=True, null=True, unique=True)
     linkdin_link = models.URLField(max_length=200, blank=True, null=True, unique=True)
     

@@ -8,7 +8,7 @@
     <title>Dependent Dropdown in Django</title>
 </head>
 <body>
-<h2>Company Form</h2>
+<h2>Company Form {{ company_profile }}</h2>
 
 <form method="post" id="personForm" enctype="multipart/form-data" data-district-url="{% url 'ajax_load_district' %}">
     {% csrf_token %}
