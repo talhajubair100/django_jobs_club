@@ -6,6 +6,7 @@ from address.models import District, Division
 class CompanyUser(models.Model):
     com_user = models.OneToOneField(User, on_delete=models.CASCADE)
     comapny_name = models.CharField(max_length=100, blank=True, null=True)
+    company_image = models.ImageField(upload_to='company-photos/', blank=True, null=True)
     phone = models.CharField(max_length=14, blank=True, null=True)
     telephone = models.CharField(max_length=14, blank=True, null=True)
     founded_date = models.DateField(blank=True, null=True)
