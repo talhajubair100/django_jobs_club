@@ -10,7 +10,7 @@
 <body>
 <h2>Company Form {{ company_profile }}</h2>
 
-<form method="post" id="personForm" enctype="multipart/form-data" data-district-url="{% url 'ajax_load_district' %}">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Submit">
